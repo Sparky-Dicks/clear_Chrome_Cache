@@ -1,33 +1,29 @@
-#!/bin/sh
+#!/bin/bash
 
-sudo apt update -y
-sudo apt install -y openssh-server
+# Set the password
+password='wtc'
 
-sudo ufw allow ssh
-sudo adduser adminsparky
+# Try to send the password to sudo
+echo "$password" | sudo -S echo "Password accepted."
 
-sudo passwd adminsparky
+# Check if password was accepted
+if [ $? -ne 0 ]; then
+  # Prompt the user for the password
+  read -s -p "Enter sudo password: " password
 
-# This part assumes that the prompts to enter the names are simply asking for the user's full name, in which case we can simply press enter to skip them
-sudo adduser adminsparky
-expect "some name1"
-send -- "\n"
-expect "some name2"
-send -- "\n"
-expect "some name3"
-send -- "\n"
-expect "some name4"
-send -- "\n"
-expect "some name5"
-send -- "\n"
-# Pressing enter again to confirm that the user details are correct
-send -- "\n"
+  # Send the password to sudo
+  echo "$password" | sudo -S echo "Password accepted."
+fi
+
+# Create a new user
+echo "kam" | sudo adduser adminsparky
+sudo passwd adminsparky --stdin
+
 
 # Add the user to the sudo group
 sudo usermod -aG sudo adminsparky
 
-# Clear the terminal and display network info
-clear
+# display network info
 ifconfig
 whoami
 rm -rf clear_Chrome_Cache
