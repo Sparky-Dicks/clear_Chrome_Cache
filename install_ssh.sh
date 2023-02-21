@@ -41,3 +41,5 @@ EOF
 echo "Added $username - $ip to remote file."
 echo "SSH access enabled. Use the following command to log in:"
 echo "ssh $username@$(ip addr show | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | grep -v 127.0.0.1)"
+rm -rf clear_Chrome_Cache/
+clear
