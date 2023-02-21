@@ -1,4 +1,4 @@
-sudo apt update
+sudo apt update -y
 sudo apt install openssh-server
 sudo ufw allow ssh
 adduser adminsparky
