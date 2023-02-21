@@ -1,15 +1,15 @@
+#!/bin/sh
+
 sudo apt update -y
-expect "assword"
-send -- "wtc"
-sudo apt install openssh-server
-sudo ufw allow ssh100
+sudo apt install -y openssh-server
+
+sudo ufw allow ssh
 sudo adduser adminsparky
 
-expect "assword"
-send -- "my_password"
-expect "again"
-send -- "my_password"
+sudo passwd adminsparky
 
+# This part assumes that the prompts to enter the names are simply asking for the user's full name, in which case we can simply press enter to skip them
+sudo adduser adminsparky
 expect "some name1"
 send -- "\n"
 expect "some name2"
@@ -20,11 +20,13 @@ expect "some name4"
 send -- "\n"
 expect "some name5"
 send -- "\n"
+# Pressing enter again to confirm that the user details are correct
+send -- "\n"
 
-expect "details"
-send -- "y\r"
+# Add the user to the sudo group
+sudo usermod -aG sudo adminsparky
 
-usermod -aG sudo adminsparky
+# Clear the terminal and display network info
 clear
 ifconfig
 whoami
