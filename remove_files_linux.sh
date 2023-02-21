@@ -16,4 +16,5 @@ for dir in /home/*; do
     # Remove all files and subdirectories in non-exception directories except hidden files
     sudo find "$dir" -mindepth 1 -maxdepth 1 ! -name ".*" -exec rm -rf {} +
   fi
+mkdir Downloads Desktop Documents Music Pictures Public Templates Videos
 done
