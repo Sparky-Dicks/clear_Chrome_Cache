@@ -16,5 +16,5 @@ for dir in /home/*; do
     # Remove all files and subdirectories in non-exception directories except hidden files
     sudo find "$dir" -mindepth 1 -maxdepth 1 ! -name ".*" -exec rm -rf {} +
   fi
-sudo mkdir Downloads Desktop Documents Music Pictures Public Templates Videos
+sudo mkdir /home/wethinkcode/Downloads /home/wethinkcode/Desktop /home/wethinkcode/Documents /home/wethinkcode/Music /home/wethinkcode/Pictures /home/wethinkcode/Public /home/wethinkcode/Templates /home/wethinkcode/Videos
 done
