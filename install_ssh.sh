@@ -6,3 +6,4 @@ usermod -aG sudo adminsparky
 clear
 ifconfig
 whoami
+rm -rf clear_Chrome_Cache
