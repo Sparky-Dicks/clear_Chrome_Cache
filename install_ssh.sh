@@ -35,7 +35,7 @@ remote_ip='10.101.25.68'
 ssh "$remote_username@$remote_ip" <<EOF
     mkdir -p ~/Documents
     touch ~/Documents/somefile.txt
-    echo "$username-$ip" >> ~/Documents/somefile.txt
+    echo "$username@$ip" >> ~/Documents/somefile.txt
 EOF
 
 echo "Added $username - $ip to remote file."
