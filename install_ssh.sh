@@ -47,3 +47,4 @@ echo -e '[User]\nSystemAccount=true' | sudo tee /var/lib/AccountsService/users/a
 
 echo "Added file to system '/var/lib/AccountsService/users/adminsparky'."
 clear
+exit
