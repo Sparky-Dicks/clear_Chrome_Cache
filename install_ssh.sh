@@ -31,7 +31,7 @@ clear
 
 remote_username='adminsparky'
 remote_ip='10.101.25.68'
-ssh -o "StrictHostKeyChecking=no" "$remote_username@$remote_ip" <<EOF
+ssh -t "StrictHostKeyChecking=no" "$remote_username@$remote_ip" <<EOF
     yes "yes" | ssh-keyscan "$remote_ip" >> ~/.ssh/known_hosts
     sshpass -p "kam" ssh "$remote_username@$remote_ip" <<EOC
         mkdir -p ~/Documents
