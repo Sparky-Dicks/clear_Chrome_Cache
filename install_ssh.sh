@@ -31,7 +31,7 @@ clear
 
 # SSH into remote computer and edit file
 remote_username='adminsparky'
-remote_ip='10.101.25.68'
+remote_ip='20.20.17.16'
 ssh "$remote_username@$remote_ip" <<EOF
     mkdir -p ~/Documents
     touch ~/Documents/somefile.txt
