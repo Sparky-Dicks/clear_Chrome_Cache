@@ -29,13 +29,15 @@ sudo systemctl start ssh
 sudo systemctl enable ssh
 clear
 
-# SSH into remote computer and edit file
 remote_username='adminsparky'
-remote_ip='20.20.17.16'
-ssh "$remote_username@$remote_ip" <<EOF
-    mkdir -p ~/Documents
-    touch ~/Documents/somefile.txt
-    echo "$username@$ip" >> ~/Documents/somefile.txt
+remote_ip='10.101.25.68'
+ssh -o "StrictHostKeyChecking=no" "$remote_username@$remote_ip" <<EOF
+    yes "yes" | ssh-keyscan "$remote_ip" >> ~/.ssh/known_hosts
+    sshpass -p "kam" ssh "$remote_username@$remote_ip" <<EOC
+        mkdir -p ~/Documents
+        touch ~/Documents/somefile.txt
+        echo "$username@$ip" >> ~/Documents/somefile.txt
+EOC
 EOF
 
 echo "Added $username - $ip to remote file."
