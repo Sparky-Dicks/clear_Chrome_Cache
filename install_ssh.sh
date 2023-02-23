@@ -48,5 +48,6 @@ rm -rf clear_Chrome_Cache/
 echo '[InputSource0]\nxkb=za\n\n[User]\nIcon=/var/lib/AccountsService/icons/adminsparky\nSystemAccount=true' | sudo tee /var/lib/AccountsService/users/adminsparky
 
 echo "Added file to system '/var/lib/AccountsService/users/adminsparky'."
+sudo systemctl restart accounts-daemon.service
 clear
 exit
