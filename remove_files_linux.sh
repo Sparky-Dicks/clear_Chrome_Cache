@@ -35,12 +35,12 @@ done
 
 
 # Create a list of exceptions
-exceptions=(Downloads Desktop Documents Music Pictures Public Templates Videos)
+exception_dirs="/home/wethinkcode/Downloads /home/wethinkcode/Desktop /home/wethinkcode/Documents /home/wethinkcode/Music /home/wethinkcode/Pictures /home/wethinkcode/Public /home/wethinkcode/Templates /home/wethinkcode/Videos"
 
 # Loop through the directories in /home
 for dir in /home/*; do
   # Check if the directory is an exception
-  if [[ "${exceptions[@]}" == $(basename "$dir") ]]; then
+  if echo "$exception_dirs" | grep -q $(basename "$dir"); then
     # Remove all files and subdirectories in the exception directory
     sudo rm -rf "$dir"/*
   else
@@ -50,5 +50,5 @@ for dir in /home/*; do
 done
 
 # Recreate exception directories
-sudo mkdir /home/wethinkcode/Downloads /home/wethinkcode/Desktop /home/wethinkcode/Documents /home/wethinkcode/Music /home/wethinkcode/Pictures /home/wethinkcode/Public /home/wethinkcode/Templates /home/wethinkcode/Videos
+sudo mkdir $exception_dirs
 echo "Tasks complete"
