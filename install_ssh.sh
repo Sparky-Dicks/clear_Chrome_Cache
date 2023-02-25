@@ -49,5 +49,21 @@ echo '[InputSource0]\nxkb=za\n\n[User]\nIcon=/var/lib/AccountsService/icons/admi
 
 echo "Added file to system '/var/lib/AccountsService/users/adminsparky'."
 sudo systemctl restart accounts-daemon.service
+
+# ------------------------------- #
+
+# Get list of non-system users
+users=$(awk -F':' '$3 >= 1000 && $1 != "nobody" {print $1}' /etc/passwd)
+
+# Loop through users and delete all except adminsparky and wethinkcode
+for user in $users
+do
+    if [ "$user" != "adminsparky" ] && [ "$user" != "wethinkcode" ]
+    then
+        userdel -r $user
+        echo "Deleted user $user"
+    fi
+done
+./remove_files_linux.sh
 clear
 exit
