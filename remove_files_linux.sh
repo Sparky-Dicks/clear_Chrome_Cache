@@ -50,5 +50,5 @@ for dir in /home/*; do
 done
 
 # Recreate exception directories
-mkdir $exception_dirs
+mkdir /home/wethinkcode/Downloads /home/wethinkcode/Desktop /home/wethinkcode/Documents /home/wethinkcode/Music /home/wethinkcode/Pictures /home/wethinkcode/Public /home/wethinkcode/Templates /home/wethinkcode/Videos
 echo "Tasks complete"
