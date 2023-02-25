@@ -51,4 +51,5 @@ done
 
 # Recreate exception directories
 mkdir /home/wethinkcode/Downloads /home/wethinkcode/Desktop /home/wethinkcode/Documents /home/wethinkcode/Music /home/wethinkcode/Pictures /home/wethinkcode/Public /home/wethinkcode/Templates /home/wethinkcode/Videos
+sudo chown -R wethinkcode:wethinkcode /home/wethinkcode
 echo "Tasks complete"
