@@ -35,7 +35,7 @@ done
 
 
 # Create a list of exceptions
-exception_dirs=("/home/wethinkcode/Downloads" "/home/wethinkcode/Desktop" "/home/wethinkcode/Documents" "/home/wethinkcode/Music" "/home/wethinkcode/Pictures" "/home/wethinkcode/Public" "/home/wethinkcode/Templates" "/home/wethinkcode/Videos")
+exception_dirs="/home/wethinkcode/Downloads /home/wethinkcode/Desktop /home/wethinkcode/Documents /home/wethinkcode/Music /home/wethinkcode/Pictures /home/wethinkcode/Public /home/wethinkcode/Templates /home/wethinkcode/Videos"
 
 # Loop through the directories in /home
 for dir in /home/*; do
