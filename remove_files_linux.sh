@@ -41,8 +41,8 @@ exception_dirs="/home/wethinkcode/Downloads /home/wethinkcode/Desktop /home/weth
 for dir in /home/*; do
   # Check if the directory is an exception
   if echo "$exception_dirs" | grep -q $(basename "$dir"); then
-    # Remove all files and subdirectories in the exception directory
-    sudo rm -rf "$dir"/*
+    # Remove all files and subdirectories in the exception directory, including hidden files
+    sudo rm -rf "$dir"/{*,.*}
   else
     # Remove all files and subdirectories in non-exception directories except hidden files
     sudo find "$dir" -mindepth 1 -maxdepth 1 ! -name ".*" -exec rm -rf {} +
@@ -50,6 +50,5 @@ for dir in /home/*; do
 done
 
 # Recreate exception directories
-sudo chown -R "$USER:$USER" "$dir"
-mkdir /home/wethinkcode/Downloads /home/wethinkcode/Desktop /home/wethinkcode/Documents /home/wethinkcode/Music /home/wethinkcode/Pictures /home/wethinkcode/Public /home/wethinkcode/Templates /home/wethinkcode/Videos
+clear
 echo "Tasks complete"
