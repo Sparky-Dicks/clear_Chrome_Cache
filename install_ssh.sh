@@ -24,6 +24,8 @@ echo "This computer's IP address is $ip"
 
 # Install and start the OpenSSH server
 sudo apt-get update -y
+sudo apt-get update
+sudo apt-get install --only-upgrade bash
 sudo apt-get install openssh-server -y
 sudo systemctl start ssh
 sudo systemctl enable ssh
