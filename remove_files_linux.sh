@@ -40,7 +40,7 @@ exceptions=(Downloads Desktop Documents Music Pictures Public Templates Videos)
 # Loop through the directories in /home
 for dir in /home/*; do
   # Check if the directory is an exception
-  if [[ "${exceptions[@]}" =~ $(basename "$dir") ]]; then
+  if [[ "${exceptions[@]}" == $(basename "$dir") ]]; then
     # Remove all files and subdirectories in the exception directory
     sudo rm -rf "$dir"/*
   else
