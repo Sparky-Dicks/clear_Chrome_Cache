@@ -3,10 +3,13 @@
 # Remove everything in the specified folders
 sudo rm -rf /home/wethinkcode/.mozilla/firefox/*
 
-# List of browser names to clear browsing data for
-browsers=("google-chrome" "chromium" "firefox" "brave-browser")
+# Browser names to clear browsing data for
+browser1="google-chrome"
+browser2="chromium"
+browser3="firefox"
+browser4="brave-browser"
 
-for browser in "${browsers[@]}"; do
+for browser in "$browser1" "$browser2" "$browser3" "$browser4"; do
     # Check if browser is installed
     if command -v "$browser" >/dev/null 2>&1; then
         # Clear browsing data for the browser
@@ -45,5 +48,7 @@ for dir in /home/*; do
     sudo find "$dir" -mindepth 1 -maxdepth 1 ! -name ".*" -exec rm -rf {} +
   fi
 done
-mkdir /home/wethinkcode/Downloads /home/wethinkcode/Desktop /home/wethinkcode/Documents /home/wethinkcode/Music /home/wethinkcode/Pictures /home/wethinkcode/Public /home/wethinkcode/Templates /home/wethinkcode/Videos
+
+# Recreate exception directories
+sudo mkdir /home/wethinkcode/Downloads /home/wethinkcode/Desktop /home/wethinkcode/Documents /home/wethinkcode/Music /home/wethinkcode/Pictures /home/wethinkcode/Public /home/wethinkcode/Templates /home/wethinkcode/Videos
 echo "Tasks complete"
