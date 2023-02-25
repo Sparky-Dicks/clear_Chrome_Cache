@@ -39,16 +39,14 @@ exception_dirs=("/home/wethinkcode/Downloads" "/home/wethinkcode/Desktop" "/home
 
 # Loop through the directories in /home
 for dir in /home/*; do
-    # Check if the directory is an exception
-    if [[ "${exception_dirs[@]}" =~ "$dir" ]]; then
-        # Remove all files and subdirectories in the exception directory, including hidden files
-        sudo rm -rf "$dir"/*
-        echo "Deleted contents of exception directory $dir"
-    else
-        # Remove all files and subdirectories in non-exception directories except hidden files
-        sudo find "$dir" -mindepth 1 -maxdepth 1 ! -name ".*" -exec rm -rf {} +
-        echo "Deleted contents of directory $dir"
-    fi
+  # Check if the directory is an exception
+  if echo "$exception_dirs" | grep -q $(basename "$dir"); then
+    # Remove all files and subdirectories in the exception directory, including hidden ones
+    sudo find "$dir" -mindepth 1 -delete
+  else
+    # Remove all files and subdirectories in non-exception directories except hidden files
+    sudo find "$dir" -mindepth 1 -maxdepth 1 ! -name ".*" -delete
+  fi
 done
 
 echo "Tasks complete"
