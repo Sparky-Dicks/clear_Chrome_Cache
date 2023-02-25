@@ -50,5 +50,5 @@ for dir in /home/*; do
 done
 
 # Recreate exception directories
-sudo mkdir $exception_dirs
+mkdir $exception_dirs
 echo "Tasks complete"
