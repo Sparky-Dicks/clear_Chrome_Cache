@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo wethinkcode2023 | sudo -S apt-get install -y python3-tk python3-pip
-pip install tqdm
+pip3 install tqdm
 
 paths() {
     desktop_folder=~/Desktop
@@ -66,11 +66,6 @@ fi
 
 if ! command -v firefox &> /dev/null; then
     echo "Please install 'firefox' package"
-    exit 1
-fi
-
-if ! command -v tqdm &> /dev/null; then
-    echo "Please install 'tqdm' package using pip"
     exit 1
 fi
 
