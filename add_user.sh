@@ -1,10 +1,19 @@
 #!/bin/bash
 
 # Set the password
-password='wtc'
+#password=("wtc")
+# Define passwords
+passwords=("wethinkcode2023" "bootcamp")
 
 # Send the password to sudo
-echo "$password" | sudo -S echo "Password accepted."
+#echo "$password" | sudo -S echo "Password accepted."
+for password in "${passwords[@]}"; do
+    echo "$password" | sudo -S echo "Password accepted."
+    if [ $? -eq 0 ]; then
+        # Command succeeded, break out of the loop
+        break
+    fi
+done
 
 # Get the username
 username='adminsparky'
