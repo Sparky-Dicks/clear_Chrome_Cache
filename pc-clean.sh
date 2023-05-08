@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo wethinkcode2023 | sudo -S apt-get install -y python3-tk python3-pip
-pip3 install tqdm
+pip install tqdm
 
 paths() {
     desktop_folder=~/Desktop
