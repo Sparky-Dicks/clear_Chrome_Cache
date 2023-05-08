@@ -55,7 +55,9 @@ delete() {
 }
 
 # Clear Firefox browser history
-rm -rf ~/.mozilla/firefox
+clear_firefox() {
+    rm -rf ~/.mozilla/firefox
+}
 
 if ! command -v bc &> /dev/null; then
     echo "Please install 'bc' package"
