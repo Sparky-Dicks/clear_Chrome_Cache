@@ -54,10 +54,8 @@ delete() {
     done
 }
 
-clear_firefox() {
-    # Clear Firefox browser history
-    firefox -no-remote -profilemanager
-}
+# Clear Firefox browser history
+rm -rf ~/.mozilla/firefox
 
 if ! command -v bc &> /dev/null; then
     echo "Please install 'bc' package"
