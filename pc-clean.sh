@@ -1,7 +1,6 @@
 #!/bin/bash
 
-sudo apt-get update
-sudo apt-get install -y python3-tk python3-pip
+echo wethinkcode2023 | sudo -S apt-get install -y python3-tk python3-pip
 pip3 install tqdm
 
 paths() {
