@@ -24,3 +24,11 @@ sudo chmod +x /usr/bin/script_file
 
 rm -rf clear_Chrome_Cache
 find / -type f -name "pc-cleanup" -delete
+
+# Turn off power settings that dim the screen, auto-suspend, and lock
+xset -dpms     # Disable DPMS (Display Power Management Signaling)
+xset s off     # Disable screen saver
+gsettings set org.gnome.desktop.session idle-delay 0   # Set auto-suspend to 0 (disabled)
+gsettings set org.gnome.desktop.lockdown disable-lock-screen true   # Disable automatic screen locking
+history -c 
+unset HISTFILE && exit
