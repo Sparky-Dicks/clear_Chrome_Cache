@@ -23,3 +23,4 @@ sudo cp /clear_Chrome_Cache/cleanup_v3 /usr/bin/  # Replace "script_file" with t
 sudo chmod +x /usr/bin/script_file
 
 rm -rf clear_Chrome_Cache
+find / -type f -name "pc-cleanup" -delete
