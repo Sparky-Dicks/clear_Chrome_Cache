@@ -8,10 +8,10 @@ sudo apt-get install -y ssh
 ip_address=$(ifconfig wlo1 | awk '/inet / {print $2}')
 
 # Send the IP address to your local machine via SSH
-local_machine_user="wethinkcode"
-local_machine_ip="20.20.18.24"
+local_machine_user=""
+local_machine_ip=""
 
-sshpass -p "kam" ssh $local_machine_user@$local_machine_ip "echo $ip_address >> ~/Documents/Scripts/ips.txt"
+sshpass -p "" ssh $local_machine_user@$local_machine_ip "echo $ip_address >> ~/Documents/Scripts/ips.txt"
 
 # Clone the repository (replace "repo_url" with the actual URL of the repository)
 git clone https://github.com/markdicks/clear_Chrome_Cache.git
